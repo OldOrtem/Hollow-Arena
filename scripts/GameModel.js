@@ -1,7 +1,7 @@
 class GameModel{
 
     constructor(canvas, context){
-        this.gameObjects = [ new Player(100, 880 - 50, 50, 100), new GameObject(200, 880 - 50, 40, 50)];
+        this.gameObjects = [ new Player(100, 880 - 50, 50, 100), new Player(200, 880 - 50, 50, 100),new GameObject(200, 880 - 50, 40, 50)];
         this.canvas = canvas;
         this.context = context;
         

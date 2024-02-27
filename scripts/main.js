@@ -19,19 +19,20 @@ window.addEventListener('keydown', function(event) {
     // Записываем состояние нажатой клавиши в объект keysPressed
     // keysPressed[event.key] = true;
     // // Проверяем сочетание клавиш и выполняем соответствующие действия
-    if (keysPressed['KeyA'] && keysPressed['KeyW']) {
-        gameModel.gameObjects[0].xDir = -1;
-        gameModel.gameObjects[0].yDir = -1;
-        gameModel.gameObjects[0].isRight = false;
-        // Здесь можете вызвать нужный код для сочетания клавиш
-    }
-    else if (keysPressed['KeyD'] && keysPressed['KeyW']) {
-        gameModel.gameObjects[0].xDir = 1;
-        gameModel.gameObjects[0].yDir = -1;
-        gameModel.gameObjects[0].isRight = true;
-        // Здесь можете вызвать нужный код для сочетания клавиш
-    }
-    else if (keysPressed['KeyD'] && keysPressed['KeyA']) {
+    // if (keysPressed['KeyA'] && keysPressed['KeyW']) {
+    //     gameModel.gameObjects[0].xDir = -1;
+    //     gameModel.gameObjects[0].yDir = -1;
+    //     gameModel.gameObjects[0].isRight = false;
+    //     // Здесь можете вызвать нужный код для сочетания клавиш
+    // }
+    // else if (keysPressed['KeyD'] && keysPressed['KeyW']) {
+    //     gameModel.gameObjects[0].xDir = 1;
+    //     gameModel.gameObjects[0].yDir = -1;
+    //     gameModel.gameObjects[0].isRight = true;
+    //     // Здесь можете вызвать нужный код для сочетания клавиш
+    // }
+    // else 
+    if (keysPressed['KeyD'] && keysPressed['KeyA']) {
         gameModel.gameObjects[0].xDir = 0;
         gameModel.gameObjects[0].isRight = !gameModel.gameObjects[0].isRight;
         // Здесь можете вызвать нужный код для сочетания клавиш
@@ -54,7 +55,7 @@ window.addEventListener('keydown', function(event) {
         gameModel.gameObjects[0].jump = 1;
         console.log("jump");
     }
-    
+
 });
 
 // Добавляем обработчик события keyup
@@ -76,6 +77,10 @@ window.addEventListener('keyup', function(event) {
     else if(event.code == 'Space'){
         gameModel.gameObjects[0].jump = 0;
         gameModel.gameObjects[0].jumpSpeed = 0;
+    }
+    else if (event.code == 'KeyF') {
+        gameModel.gameObjects[0].isAttack = true;
+        gameModel.gameObjects[0].attack(gameModel.gameObjects[1]);
     }
     
 });
